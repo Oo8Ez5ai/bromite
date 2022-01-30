@@ -7,7 +7,7 @@ git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git $HOME
 export PATH="$PATH:$HOME/depot_tools"
 mkdir chromium && cd chromium
 
-fetch --nohooks android --no-history
+fetch --no-history --nohooks android
 cd src
 ver="$(cat build/RELEASE)"
 git fetch https://chromium.googlesource.com/chromium/src.git +refs/tags/"$ver":chromium_"$ver"
