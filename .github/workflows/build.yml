@@ -34,6 +34,32 @@ jobs:
           path: ~/chromium
           key: android
 
+      - name: Maximize build disk space
+        # You may pin to the exact commit or the version.
+        # uses: easimon/maximize-build-space@9ea1a0d4af4788c122cc820dbf9652ebb93dec5a
+        uses: easimon/maximize-build-space@v5
+        with:
+          # Space to be left free on the root filesystem, in Megabytes.
+          root-reserve-mb: # optional, default is 1024
+          # Space to be left free on the temp filesystem (/mnt), in Megabytes.
+          temp-reserve-mb: # optional, default is 100
+          # Swap space to create, in Megabytes.
+          swap-size-mb: # optional, default is 4096
+      
+          overprovision-lvm: # optional, default is false
+          # Absolute path to the mount point where the build space will be available, defaults to $GITHUB_WORKSPACE if unset.
+          build-mount-path: # optional
+          # Absolute file path for the LVM image created on the root filesystem, the default is usually fine.
+          pv-loop-path: # optional, default is /pv.img
+          # Absolute file path for the LVM image created on the temp filesystem, the default is usually fine. Must reside on /mnt
+          tmp-pv-loop-path: # optional, default is /mnt/tmp-pv.img
+          # Removes .NET runtime and libraries. (frees ~17 GB)
+          remove-dotnet: # optional, default is false
+          # Removes Android SDKs and Tools. (frees ~11 GB)
+          remove-android: # optional, default is false
+          # Removes GHC (Haskell) artifacts. (frees ~2.7 GB)
+          remove-haskell: # optional, default is false
+
       # Runs a single command using the runners shell
       - name: Run build script
         run: chmod 755 chrome-build-build.sh; ./chrome-build-build.sh
