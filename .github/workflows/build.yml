@@ -22,18 +22,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      - name: Cache chromium source code
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-chromium-src
-        with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: chromium
-          key: android
-
       - name: Maximize build disk space
         # You may pin to the exact commit or the version.
         # uses: easimon/maximize-build-space@9ea1a0d4af4788c122cc820dbf9652ebb93dec5a
@@ -59,6 +47,19 @@ jobs:
           remove-android: true
           # Removes GHC (Haskell) artifacts. (frees ~2.7 GB)
           remove-haskell: true
+
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Cache chromium source code
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-chromium-src
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: chromium
+          key: android
+
 
       # Runs a single command using the runners shell
       - name: Run build script
