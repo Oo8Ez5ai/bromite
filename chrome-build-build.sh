@@ -2,7 +2,7 @@
 set -ex
 
 topdir="$(pwd)"
-chr=$HOME/chromium
+chr=$topdir/chromium
 
 if [ ! -d "$chr/depot_tools" ]; then
 	echo FATAL: No depot_tools/ on $chr. Create cache before run.

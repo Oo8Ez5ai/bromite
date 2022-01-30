@@ -2,7 +2,7 @@
 set -ex
 
 topdir="$(pwd)"
-chr=$HOME/chromium
+chr=$topdir/chromium
 
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git $chr/depot_tools --depth 1
 export PATH="$PATH:$chr/depot_tools"
