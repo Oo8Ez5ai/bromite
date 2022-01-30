@@ -1,3 +1,5 @@
+[![CI](https://github.com/Oo8Ez5ai/bromite/actions/workflows/main.yml/badge.svg)](https://github.com/Oo8Ez5ai/bromite/actions/workflows/main.yml)
+
 # Bromite - Take back your browser
 <a href="https://github.com/bromite/bromite/releases/latest">
   <img src="https://www.bromite.org/release.svg" alt="current Bromite release" title="current Bromite release" /> </a>
